@@ -1,0 +1,31 @@
+import urllib.request
+
+print('=' * 50)
+print('Programa para saber se um site está ou não ativo!'.center(50))
+print('\033[32m    DIGITE APENAS O NOME PRINCIPAL!\033[m'.center(50))
+print('=' * 50)
+site = str(input('Digite o endereço do site: '))
+print('=' * 50)
+
+try:
+    site_1 = urllib.request.urlopen(f'https://www.{site}.com.br/')
+
+except urllib.request.URLError:
+    print('\033[31mO site NÃO ESTÁ acessível no formato (.com.br)!\033[m')
+    print('=' * 50)
+
+else:
+    print('\033[033mO site ESTÁ acessível no formato (.com.br)!\033[m')
+    print('=' * 50)
+
+try:
+    site_2 = urllib.request.urlopen(f'https://www.{site}.com/')
+
+except urllib.request.URLError:
+    print('\033[31mO site NÃO ESTÁ acessível no formato (.com)!\033[m')
+    print('=' * 50)
+
+else:
+    print('\033[033mO site ESTÁ acessível no formato (.com)!\033[m')
+    print('=' * 50)
+
